@@ -4,7 +4,7 @@ count_true = 0
 count_false = 0
 
 for i in range(n):
-    line = input().split()
+    line = input(f'in_{i +1}:').split()
 
     if line[-1] == 'True':
         count_true += 1
