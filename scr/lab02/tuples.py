@@ -21,3 +21,8 @@ def format_record(rec: tuple[str, str, float]) -> str:
         raise ValueError('Группа не может быть пустой')
 
     return f'{parts[0].capitalize()} {initials}, гр. {group}, GPA {gpa:.2f}'
+
+print(f'("Иванов Иван Иванович", "BIVT-25", 4.6) → "{format_record(("Иванов Иван Иванович", "BIVT-25", 4.6))}"')
+print(f'("Петров Пётр", "IKBO-12", 5.0) → "{format_record(("Петров Пётр", "IKBO-12", 5.0))}"')
+print(f'("Петров Пётр Петрович", "IKBO-12", 5.0) → "{format_record(("Петров Пётр Петрович", "IKBO-12", 5.0))}"')
+print(f'("  сидорова  анна   сергеевна ", "ABB-01", 3.999) → "{format_record(("  сидорова  анна   сергеевна ", "ABB-01", 3.999))}"')
