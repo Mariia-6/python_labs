@@ -114,7 +114,7 @@ def flatten(mat: list[list | tuple]) -> list:
 
 #### Тест-кейсы:
 
-![Пример работы arrays.py][https://github.com/Mariia-6/python_labs/blob/main/images/lab02/arrays.png]
+![Пример работы arrays.py](https://github.com/Mariia-6/python_labs/blob/main/images/lab02/arrays.png)
 
 ## Задание B
 
@@ -203,7 +203,7 @@ def col_sums(mat: List[List[Union[float, int]]]) -> List[float]:
 
 #### Тест-кейсы:
 
-![Пример работы matrix.py][https://github.com/Mariia-6/python_labs/blob/main/images/lab02/matrix.png]
+![Пример работы matrix.py](https://github.com/Mariia-6/python_labs/blob/main/images/lab02/matrix.png)
 
 ## Задание C
 
@@ -281,4 +281,4 @@ def format_record(rec: tuple[str, str, float]) -> str:
 (Беру первый элемент parts[0] - фамилию, вызываю capitalize(), чтобы первая буква была заглавная. Вставляю сформированные ранее инициалы initials, текст ', гр.', название группы group, текст ', GPA', gpa с форматной спецификацией .2f(округление до сотых).)
 
 #### Тест-кейсы:
-![Пример работы tuples.py][https://github.com/Mariia-6/python_labs/blob/main/images/lab02/tuples.png]
+![Пример работы tuples.py](https://github.com/Mariia-6/python_labs/blob/main/images/lab02/tuples.png)
