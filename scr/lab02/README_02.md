@@ -1,5 +1,6 @@
 # python_labs
-# Лабораторная работа №2
+# ЛР2 — Коллекции и матрицы (list/tuple/set/dict)
+
 ## Задание A
 
 ### Функция 1 (A)
@@ -35,9 +36,6 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 Аналогично для максимума.
 
 Возвращается результат - кортеж из двух значений: минимум и максимум.
-
-#### Тест-кейсы:
-
 
 ### Функция 2 (A)
 
@@ -83,10 +81,6 @@ j - индекс элемента слева от key, от него начин�
 
 Возвращаю отсортированный список уникальных значений.
 
-#### Тест-кейсы:
-
-
-
 ### Функция 3 (A)
 
 #### flatten
@@ -120,7 +114,7 @@ def flatten(mat: list[list | tuple]) -> list:
 
 #### Тест-кейсы:
 
-
+![Пример работы arrays.py][https://github.com/Mariia-6/python_labs/blob/main/images/lab02/arrays.png]
 
 ## Задание B
 
@@ -166,8 +160,6 @@ def transpose(mat: List[List[Union[float, int]]]) -> List[List[Union[float, int]
 zip идет по элементам параллельно: берет первые элементы каждой строки, потом вторые и т.д. Получаются столбцы исходной матрицы.<br>
 Внешние [...] собирают всё в список списков.
 
-#### Тест-кейсы:
-
 
 ### Функция 2 (B)
 
@@ -185,10 +177,6 @@ def row_sums(mat: List[List[Union[float, int]]]) -> List[float]:
 
 Списковое включение: для каждой строки row вызываем встроенную sum(row) - собираю результаты в список.<br>
 Для [] цикл не выполнится ни разу - вернется [].
-
-#### Тест-кейсы:
-
-
 
 ### Функция 3 (B)
 
@@ -215,7 +203,7 @@ def col_sums(mat: List[List[Union[float, int]]]) -> List[float]:
 
 #### Тест-кейсы:
 
-
+![Пример работы matrix.py][https://github.com/Mariia-6/python_labs/blob/main/images/lab02/matrix.png]
 
 ## Задание C
 
@@ -293,4 +281,4 @@ def format_record(rec: tuple[str, str, float]) -> str:
 (Беру первый элемент parts[0] - фамилию, вызываю capitalize(), чтобы первая буква была заглавная. Вставляю сформированные ранее инициалы initials, текст ', гр.', название группы group, текст ', GPA', gpa с форматной спецификацией .2f(округление до сотых).)
 
 #### Тест-кейсы:
-![][]
+![Пример работы tuples.py][https://github.com/Mariia-6/python_labs/blob/main/images/lab02/tuples.png]
