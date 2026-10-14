@@ -1,8 +1,8 @@
 # python_labs
 # Лабораторная работа №2
-## Задание 1
+## Задание A
 
-### Функция 1 (1)
+### Функция 1 (A)
 
 min_max
 
@@ -39,9 +39,9 @@ def min_max(nums: list[float | int]) -> tuple[float | int, float | int]:
 #### Тест-кейсы:
 
 
-### Функция 2 (1)
+### Функция 2 (A)
 
-unique_sorted 
+#### unique_sorted 
 
 ``` python
 def unique_sorted(nums: list[float | int]) -> list[float | int]:
@@ -87,9 +87,9 @@ j - индекс элемента слева от key, от него начин�
 
 
 
-### Функция 3 (1)
+### Функция 3 (A)
 
-flatten
+#### flatten
 
 ```python
 def flatten(mat: list[list | tuple]) -> list:
@@ -122,4 +122,98 @@ def flatten(mat: list[list | tuple]) -> list:
 
 
 
-## Задание 2
+## Задание B
+
+``` python
+def _check_rectangular(mat: List[List[Union[float, int]]]) -> None:
+    if not mat:
+        return
+    first_len = len(mat[0])
+    for row in mat:
+        if len(row) != first_len:
+            raise ValueError("Матрица должна быть прямоугольной")
+```
+Задаю внутреннюю функцию _check_rectangular с параметром mat: список списков, где элементы - xbck(int или float), она ничего не возвращает(-> None), только проверяет и, при необходимости, бросает исключение.<br>
+Если mat - пустой список(такая матрица автоматически становится прямоугольной), проверять нечего - выхожу из функции через return.
+
+Запоминаю длину первой строки матрицы как эталон. Все остальные должны быть той же длины.
+
+Прохожу циклом 'for row in mat' по каждой строке матрицы, на каждой итерации row - это очередной список(строка).
+
+Если длина текущей строки не совпдает с эталоном - матрица "рваная", бросаю исключение ValueError.
+
+### Функция 1 (B)
+
+#### transpose(mat: list[list[float | int]]) -> list[list]
+
+```python
+def transpose(mat: List[List[Union[float, int]]]) -> List[List[Union[float, int]]]:
+    _check_rectangular(mat)
+    if not mat:
+        return []
+    return [list(row) for row in zip(*mat)]
+```
+Объявляю функцию transpose: принимает матрицу, возвращает матрицу того же типа.
+
+Вызываю проверку прямоугольности(_check_rectangular(mat)). Если матрица рваная - вылетит ValueError и дальше код не пойдет.
+
+Если матрица пустая - возвращаю пустой список.
+
+Транспонирование:<br>
+*mat - распаковывает список строк в отдельные агументы по формату zip(mat[0], mat[1], ..., mat[n-1]).<br>
+zip идет по элементам параллельно: берет первые элементы каждой строки, потом вторые и т.д. Получаются столбцы исходной матрицы.<br>
+Внешние [...] собирают всё в список списков.
+
+#### Тест-кейсы:
+
+
+### Функция 2 (B)
+
+#### row_sums(mat: list[list[float | int]]) -> list[float]
+
+```python
+def row_sums(mat: List[List[Union[float, int]]]) -> List[float]:
+    _check_rectangular(mat)
+    return [sum(row) for row in mat]
+```
+
+Объявляю функцию row_nums: принимает матрицу, возвращает список чисел(суммы по строкам).
+
+Проверяю прямоугольность(_check_rectangular(mat)).
+
+Списковое включение: для каждой строки row вызываем встроенную sum(row) - собираю результаты в список.<br>
+Для [] цикл не выполнится ни разу - вернется [].
+
+#### Тест-кейсы:
+
+
+
+### Функция 3 (B)
+
+#### col_sums(mat: list[list[float | int]]) -> list[float]
+
+``` python
+def col_sums(mat: List[List[Union[float, int]]]) -> List[float]:
+    _check_rectangular(mat)
+    if not mat:
+        return []
+    transposed = transpose(mat)
+    return [sum(row) for row in transposed]
+```
+
+Объявляю функцию col_nums: принимает матрицу, возвращает список сумм по столбцам.
+
+Проверяю прямоугольность(_check_rectangular(mat)).
+
+Если матрица пустая - столбцов нет, возвращаю [].
+
+Транспонирование матрицы(transpose(mat)): столбцы исходной - строки итоговой. Теперь сумма "по столбцу" сведена к сумме "по строке".
+
+Для каждой строки транспонированной матрицы(=каждого исходного столбца) считаю сумму, собираю в список.
+
+#### Тест-кейсы:
+
+
+
+## Задание C
+
