@@ -124,6 +124,8 @@ def flatten(mat: list[list | tuple]) -> list:
 
 ## Задание B
 
+#### Проверка прямоугольности
+
 ``` python
 def _check_rectangular(mat: List[List[Union[float, int]]]) -> None:
     if not mat:
@@ -217,3 +219,77 @@ def col_sums(mat: List[List[Union[float, int]]]) -> List[float]:
 
 ## Задание C
 
+### Пункт 1(C)
+
+#### Определение типа записи студента как кортежа
+
+```python
+def format_record(rec: tuple[str, str, float]) -> str:
+```
+
+Реализовывается в сигнатуре функции: rec: tuple[str, str, float].<br>
+В рантайме этот тип гарантируется проверками ниже:<br>
+if not isinsistance(rec, tuple) or len(rec) != 3: - кортеж из 3 элементов.<br>
+if not isinsistance(name,str) or not isinsistance(group, str): - первые два поля - строки.<br>
+if not isinsistance(gpa, bool) or not isinsistance(gpa, (int, float)): - третье - число.
+
+### Пункт 2(C)
+
+#### Реализация format_record(rec: tuple[str, str, float]) -> str
+
+```python
+def format_record(rec: tuple[str, str, float]) -> str:
+    if not isinstance(rec, tuple) or len(rec) != 3:
+        raise ValueError('Все поля должны быть заполнены')
+
+    name, group, gpa = rec
+
+    if not isinstance(name, str) or not isinstance(group, str):
+        raise TypeError('Имя и группа должны быть строками')
+    if isinstance(gpa, bool) or not isinstance(gpa, (int, float)):
+        raise TypeError('GPA должно быть числом')
+    if not (0.0 <= gpa <= 5.0):
+        raise ValueError('GPA должен быть в диапазоне от 0.0 до 5.0')
+
+    parts = name.strip().split()
+    if len(parts) not in (2, 3):
+        raise ValueError('ФИО должно содержать 2 или 3 слова')
+
+    initials = ''.join(p[0].upper() + '.' for p in parts[1:])
+    group = group.strip()
+    if not group:
+        raise ValueError('Группа не может быть пустой')
+
+    return f'{parts[0].capitalize()} {initials}, гр. {group}, GPA {gpa:.2f}'
+```
+
+Объявляю функцию format_record: принимает параметр rec - кортеж, состоит из: строка(str), строка(str), дробное число(float). Возвращает строку(-> str).
+
+Проверяю входные данные на соблюдения формата кортежа из 3 элементов. Если формат не соблюден - вывожу ValueError(ошибку значения).
+
+Распаковываю кортеж на отдельные переменные - name(ФИО), group(группа), gpa(средний балл по оценкам).
+
+Проверяю, что name и group - строки, если нет - вывожу TypeError.
+
+Проверяю, что gpa - число(int или float), а не логическое(булевое) значение(bool). Если нет - вывожу TypeError.
+
+Проверяю, что gpa в диапазоне от 0.0 до 5.0. Если нет - вывожу ValueError.
+
+Разбиваю ФИО(name) на отдельные слова, убирая лишние символы. Сохраняю в список parts.
+
+Проверяю, что длина ФИО(len(parts)) - 2 или 3 слова. Если нет - вывожу ValueError.
+
+Формирую строку initials для записи инициалов в нее.<br>
+Срезаю список(parts[1:]), беру все, кроме первого элемента, так как первый - фамилия.<br>
+Циклом 'for p in parts[1:]' для каждого временного имени p для текущего слова беру первый символ слова(p[0]), использую '.upper()', чтобы сделать букву заглавной. Приклеиваю точку после заглавной буквы.<br>
+Методом строки '''.join(...)' склеиваю элементы последовательности в одну строку без разделителя.<br>
+Итог сохраняю в переменную initials.
+
+Убираю пробелы в начале и конце названия группы(group.strip()).
+
+Проверяю, что группа не пустая. Если после очистки группа пустая - вывожу ValueError.
+
+Собираю ответ и возвращаю его.<br>
+(Беру первый элемент parts[0] - фамилию, вызываю capitalize(), чтобы первая буква была заглавная. Вставляю сформированные ранее инициалы initials, текст ', гр.', название группы group, текст ', GPA', gpa с форматной спецификацией .2f(округление до сотых).)
+
+#### Тест-кейсы:
