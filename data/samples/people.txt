@@ -1,0 +1,5 @@
+Alice lives in SPB and studies Python programming at the university.
+Bob lives in Moscow and works with data in Python every day.
+Carlos from Kazan likes Python and data analysis.
+Dana also lives in SPB and learns Python with Alice.
+Andrey from Novosibirsk uses Python for data processing and automation.
