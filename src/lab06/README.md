@@ -177,13 +177,17 @@ python -m src.lab06.cli_convert csv2xlsx --in data/samples/people.csv --out data
 
 ## Скриншоты работы
 Справка cli_text
+
 ![Справка cli_text](../../images/lab06/01_cli_text_help.png)
 
 Работа cat и stats
+
 ![Работа cat и stats](../../images/lab06/02_cli_text_run.png)
 
 Справка cli_convert
+
 ![Справка cli_convert](../../images/lab06/03_cli_convert_help.png)
 
 Конвертация через CLI
+
 ![Конвертация через CLI](../../images/lab06/04_cli_convert_run.png)
