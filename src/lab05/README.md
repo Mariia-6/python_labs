@@ -151,12 +151,17 @@ python -c "from src.lab05.csv_xlsx import csv_to_xlsx; csv_to_xlsx('data/samples
 
 ### Скриншоты работы
 
+Конвертация JSON в CSV
 ![Конвертация JSON в CSV](../../images/lab05/01_json_to_csv.png)
 
+Конвертация CSV в JSON
 ![Конвертация CSV в JSON](../../images/lab05/02_csv_to_json.png)
 
+Конвертация CSV в XLSX
 ![Конвертация CSV в XLSX](../../images/lab05/03_csv_to_xlsx.png)
 
+Результат в LibreOffice Calc (movies)
 ![Результат в LibreOffice Calc (movies)](../../images/lab05/04_csv_to_xlsx_preview_movies.png)
 
+Результат в LibreOffice Calc (people)
 ![Результат в LibreOffice Calc (people)](../../images/lab05/04_csv_to_xlsx_preview_people.png)
